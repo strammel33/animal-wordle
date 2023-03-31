@@ -1,0 +1,113 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  margin: 0;
+}
+
+/* header (includes title, message, help button(and content), and difficulty button */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 650px;
+  border: 2px solid black;
+}
+
+.title-message{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  height: 16px;
+  padding: 0;
+  margin: 0;
+
+}
+
+aside {
+  margin-left: auto;
+  position: relative;
+  display: inline-block
+}
+
+.dropbtn {
+  background-color: green;
+  font-size: 16px;
+  padding: 10px 3px;
+  margin: 3px
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: lavender;
+  min-width: 500px;
+  right: 0;
+  z-index: 1;
+}
+
+ul {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+
+button {
+  background-color: white;
+  margin: 1vmin
+}
+
+#board {
+  display: grid;
+  grid-template-rows: repeat(6, 7vmin);
+  grid-template-columns: repeat(5, 7vmin);
+  grid-gap: 2vmin 1vmin;
+}
+
+.cell {
+  border: 2px solid black;
+  font-size: 8vmin;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.keyboard div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+section > div > div {
+  background-color: rgb(249, 248, 248);
+  padding: 1vmin;
+  margin: .5vmin;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.drop-content a:hover {background-color: blue;}
+aside:hover .drop-content {display: block;}
+aside:hover .dropbtn {background-color: blueviolet;}
