@@ -12,15 +12,12 @@
     <header>
         <div class="title-message">
             <h1>Animal Wordle</h1>
-            <h3>some fun slogan to play, change to win or lose</h3>
+            <h3 id="message">some fun slogan to play, change to win or lose</h3>
         </div>
         <aside class="dropdown">
             <button class="dropbtn">Play Guide</button>
             <ul class="drop-content">
                 <li>Hard Mode - Warning! Contains animals you may not be familiar with</li>
-                <li>Yellow means the letter is found elsewhere in the solution</li>
-                <li>Green means the letter and location are correct</li>
-                <li>Greyed-out letters on the keyboard have been guessed already</li>
                 <li>No plurals (end in -s or 'geese' for 'goose')</li>
                 <li>No abbreviations ('rhino' for 'rhinoceros')</li>
                 <li>No terms derived from animals sex ('queen' for 'cat')</li>
@@ -29,7 +26,7 @@
             </ul>
         </aside>
     </header>
-    <button class="mode-button">Easy Mode</button>
+    <button class="mode-btn">Easy Mode</button>
 
     <section id="board">
         <div class="cell" id="r0c0"></div>

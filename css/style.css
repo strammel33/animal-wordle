@@ -71,7 +71,9 @@ ul {
 
 button {
   background-color: white;
-  margin: 1vmin
+  margin: 1vmin;
+  padding: 1vmin;
+  cursor: pointer;
 }
 
 #board {
@@ -106,6 +108,7 @@ section > div > div {
   margin: .5vmin;
   border: 2px solid black;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .drop-content a:hover {background-color: blue;}

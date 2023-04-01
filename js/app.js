@@ -1,4 +1,46 @@
+/*----------------------- CONSTANTS --------------------------*/
+
 import { getRandomAnimal, getRandomEasyAnimal } from "../assets/data/data.js";
 
+/*--------------------- VARIABLES (state) ---------------------*/
 
-console.log(getRandomEasyAnimal())
+let currentGuess, guessesRemaining, currentLetter, letter, mode, winner, winningWord
+
+/*------------------- CACHED ELEMENT REFERENCES -------------------*/
+
+const boardEl = document.getElementById('board')
+
+const cellEl = document.querySelectorAll('.cell')
+
+const keyboardEl = document.querySelector('.keyboard')
+
+const resetBtn = document.querySelector('.reset')
+
+const modeBtn = document.querySelector('.mode-btn')
+
+const messageEL = document.getElementById('message')
+
+/*--------------------- EVENT LISTENERS --------------------------*/
+
+
+
+/*----------------------- FUNCTIONS ---------------------------------*/
+init()
+
+function init(){
+  currentGuess = 0
+  guessesRemaining = 6
+  currentLetter = ''
+  mode = 1
+  winner = false
+
+}
+
+function modeChoice(){
+  if (mode === 1) {
+    winningWord = getRandomEasyAnimal()
+  } else {
+    winningWord = getRandomAnimal()
+  }
+  return winningWord
+}
