@@ -22,7 +22,7 @@ const messageEL = document.getElementById('message')
 
 /*--------------------- EVENT LISTENERS --------------------------*/
 
-
+modeBtn.addEventListener('click', modeChoice)
 
 /*----------------------- FUNCTIONS ---------------------------------*/
 init()
@@ -33,14 +33,14 @@ function init(){
   currentLetter = ''
   mode = 1
   winner = false
-
+  getWord()
 }
 
-function modeChoice(){
-  if (mode === 1) {
-    winningWord = getRandomEasyAnimal()
-  } else {
-    winningWord = getRandomAnimal()
-  }
+function getWord(){
+  mode === 1 ? winningWord = getRandomEasyAnimal() : winningWord = getRandomAnimal()
   return winningWord
+}
+
+function modeChoice() {
+  return mode = mode * -1
 }
