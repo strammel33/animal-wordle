@@ -40,7 +40,13 @@ function init(){
   mode = 1
   winner = false
   getWord()
+  makeGuess()
+}
 
+function makeGuess() {
+  clickInput()
+  insertLetter(evt)
+  // nextCell()
 }
 
 function reset() {
@@ -58,20 +64,25 @@ function modeChoice() {
 }
 
 function clickInput(evt) {
-  //if guesses = 0, end of game, lost
   if (guessesRemaining === 0) {
     return
   }
-  //target the clicked letter as string
+  let usedKey = evt.target.className
+  if (usedKey === "gray") {
+  return
+  }
   let clickKey = evt.target.id
-  //if user clicks delete and theres a letter, call delete
+
+  if (clickKey === '') {
+    return
+  }
+  console.log(clickKey)
+
   if (clickKey === "delete" && nextLetter != 0) {
     deleteLetter()
-  //if user clicks enter and there are 5 letters call check
   } if (clickKey === "enter" && nextLetter === 5 ) {
     checkGuess()
   } else {
-    // add to row
     insertLetter(clickKey)
   }
 }
@@ -81,12 +92,19 @@ function keyInput(evt) {
     return
   }
 }
+
 function insertLetter(str) {
-  console.log(str)
-//   let usedKey = evt.target.className
-// if (usedKey === "gray") {
-//   return
+  let row = (6 - guessesRemaining)
+  let cell = nextLetter
+  let currentCellEl = document.getElementById(`r${row}c${cell}`)
+  currentCellEl.textContent = str
+  nextCell()
 }
+
+function nextCell(cell){
+  nextLetter++
+}
+insertLetter()
 
 //if clicked key has been previously guessed
 
