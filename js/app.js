@@ -46,7 +46,7 @@ function init(){
 function makeGuess() {
   clickInput()
   insertLetter(evt)
-  // nextCell()
+  nextCell()
 }
 
 function reset() {
@@ -78,10 +78,12 @@ function clickInput(evt) {
   }
   console.log(clickKey)
 
-  if (clickKey === "delete" && nextLetter != 0) {
+  if (clickKey === "delete") {
     deleteLetter()
+    return
   } if (clickKey === "enter" && nextLetter === 5 ) {
     checkGuess()
+    return
   } else {
     insertLetter(clickKey)
   }
@@ -91,20 +93,33 @@ function keyInput(evt) {
   if (guessesRemaining === 0) {
     return
   }
+  //learn how to use a keyboard
 }
 
-function insertLetter(str) {
+function findCell() {
   let row = (6 - guessesRemaining)
   let cell = nextLetter
   let currentCellEl = document.getElementById(`r${row}c${cell}`)
-  currentCellEl.textContent = str
+  return currentCellEl
+}
+
+function insertLetter(str) {
+  findCell().textContent = str
   nextCell()
 }
 
 function nextCell(cell){
   nextLetter++
 }
-insertLetter()
+
+function deleteLetter() {
+  nextLetter--
+  findCell().textContent = ''
+}
+
+function checkGuess() {
+
+}
 
 //if clicked key has been previously guessed
 
