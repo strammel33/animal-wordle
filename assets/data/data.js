@@ -97,6 +97,7 @@ const animals = [
   'SIREN',
   'SHARK',
   'SKATE',
+  'MOLLY',
   'MORAY',
   'LOACH',
   'TETRA',
@@ -104,6 +105,12 @@ const animals = [
   'TROUT',
   'GUPPY',
   'PERCH',
+  'PORGY',
+  'WAHOO',
+  'ROACH',
+  'BETTA',
+  'LANCE',
+  'SMELT'
 ]
 
 const easyAnimals = [
