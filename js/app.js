@@ -1,6 +1,6 @@
 /*----------------------- CONSTANTS --------------------------*/
 
-import { getRandomAnimal, getRandomEasyAnimal } from "../assets/data/data.js";
+import { getRandomAnimal, getRandomEasyAnimal, animals, easyAnimals } from "../assets/data/data.js";
 
 /*--------------------- VARIABLES (state) ---------------------*/
 
@@ -45,7 +45,7 @@ function init(){
 
 function makeGuess() {
   clickInput()
-  insertLetter(evt)
+  insertLetter(str)
   nextCell()
 }
 
@@ -53,7 +53,7 @@ function reset() {
   keyEl.className = "key"
 }
 
-function getWord(){
+function getWord() {
   mode === 1 ? winningWord = getRandomEasyAnimal() : winningWord = getRandomAnimal()
   return winningWord
   //Need CSS that changes the text on the button
@@ -69,20 +69,19 @@ function clickInput(evt) {
   }
   let usedKey = evt.target.className
   if (usedKey === "gray") {
-  return
+    return
   }
   let clickKey = evt.target.id
-
   if (clickKey === '') {
     return
   }
-  console.log(clickKey)
-
   if (clickKey === "delete") {
     deleteLetter()
     return
   } if (clickKey === "enter" && nextLetter === 5 ) {
-    checkGuess()
+    submitGuess()
+    return
+  } if (clickKey === "enter" && nextLetter != 5) {
     return
   } else {
     insertLetter(clickKey)
@@ -105,21 +104,52 @@ function findCell() {
 
 function insertLetter(str) {
   findCell().textContent = str
+  currentGuess.push(str)
   nextCell()
 }
 
-function nextCell(cell){
+function nextCell() {
   nextLetter++
 }
 
 function deleteLetter() {
   nextLetter--
   findCell().textContent = ''
+  currentGuess.pop()
 }
 
-function checkGuess() {
-
+function submitGuess() {
+  currentGuess = currentGuess.join('')
+  let animalArray
+  if (mode === 1) {
+    animalArray = easyAnimals
+  } else if (mode === -1) {
+    animalArray = animals
+  }
+  if (animalArray.includes(currentGuess)){
+    compareGuess()
+  } else {
+    return
+  }
 }
 
-//if clicked key has been previously guessed
+
+  //   if (currentGuess === winningWord) {
+  //     winner = true
+  //     console.log('win')
+  //   } else {
+  //     compareWords()
+  //     guessesRemaining++
+  //   }
+  // }
+  
+  // function compareWords(winningWord, currentGuess) {
+  //   console.log(winningWord)
+  //   console.log(currentGuess)
+  //   currentGuess.forEach(function(letter, idx) {
+  //     if 
+  
+  //   })
+  // }
+
 

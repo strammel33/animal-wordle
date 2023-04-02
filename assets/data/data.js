@@ -177,5 +177,7 @@ function getRandomEasyAnimal() {
 
 export {
   getRandomAnimal,
-  getRandomEasyAnimal
+  getRandomEasyAnimal,
+  animals,
+  easyAnimals
 }
