@@ -2,6 +2,8 @@
 
 import { getRandomAnimal, getRandomEasyAnimal, animals, easyAnimals } from "../assets/data/data.js";
 
+const allowedKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'BACKSPACE', 'ENTER']
+
 /*--------------------- VARIABLES (state) ---------------------*/
 
 let currentGuess, guessesRemaining, nextLetter, mode, winner, winningWord
@@ -28,7 +30,7 @@ modeBtn.addEventListener('click', updateMode)
 
 keyboardEl.addEventListener('click', clickInput)
 
-// document.addEventListener('keydown', keyInput)
+document.addEventListener('keydown', keyInput)
 
 resetBtn.addEventListener('click', reset)
 
@@ -73,8 +75,7 @@ function clickInput(evt) {
     let clickKey = evt.target.id
     if (clickKey === '') {
       return
-    }
-    if (clickKey === "delete") {
+    } if (clickKey === "delete") {
       deleteLetter()
       return
     } if (clickKey === "enter" && nextLetter === 5 ) {
@@ -90,12 +91,28 @@ function clickInput(evt) {
   }
 }
 
-// function keyInput(evt) {
-//   if (guessesRemaining === 0) {
-//     return
-//   }
-//   learn how to use a keyboard
-// }
+function keyInput(evt) {
+  if (winner === false) {
+    if (guessesRemaining === 0) {
+      return
+    }
+    let pressKey = evt.key.toUpperCase()
+    console.log(pressKey)
+    if (!allowedKeys.includes(pressKey)) {
+      return
+    } if (pressKey === "BACKSPACE") {
+      deleteLetter()
+      return
+    } if (pressKey === "ENTER" && nextLetter === 5 ) {
+      submitGuess()
+      return
+    } else {
+      insertLetter(pressKey)
+    }
+  } else {
+    return
+  }
+}
 
 
 function findCell() {
@@ -158,7 +175,6 @@ function compareGuess() {
     }
     return prev
   }, {})
-console.log(winLetterCount)
 
   let guessLetterCount = guessArray.reduce(function(prev, letter){
     if(prev[letter]) {
@@ -168,7 +184,6 @@ console.log(winLetterCount)
     }
     return prev
   }, {})
-  console.log(guessLetterCount)
 
   guessArray.forEach(function(letter, idx) {
     let currentCellEl = document.getElementById(`r${row}c${idx}`)
@@ -177,7 +192,6 @@ console.log(winLetterCount)
 
     if (letter === winArray[idx]) {
       currentCellEl.style.backgroundColor = 'green'
-      currentKeyEl.style.backgroundColor = 'green'
     } else if (!winArray.includes(letter) || (guessLetterCount[letter] > winLetterCount[letter])){
       currentCellEl.style.backgroundColor = 'gray'
     } else {
