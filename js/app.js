@@ -24,7 +24,7 @@ const messageEL = document.getElementById('message')
 
 /*--------------------- EVENT LISTENERS --------------------------*/
 
-modeBtn.addEventListener('click', modeChoice)
+modeBtn.addEventListener('click', updateMode)
 
 keyboardEl.addEventListener('click', clickInput)
 
@@ -42,6 +42,7 @@ function init(){
   mode = 1
   winner = false
   getWord()
+  modeBtnText()
 }
 
 function getWord() {
@@ -49,14 +50,19 @@ function getWord() {
   return winningWord
 }
 
-function modeChoice() {
-  if (guessesRemaining === 6){
-    return mode = mode * -1
+
+function updateMode() {
+  if (guessesRemaining === 6) {
+    mode = mode * -1
+    getWord()
+    modeBtnText()
   } else {
     return
   }
-  //Need CSS that changes the text on the button
+  console.log(winningWord)
 }
+
+
 
 function clickInput(evt) {
   if (winner === false) {
@@ -184,4 +190,12 @@ function reset() {
     cell.textContent = ''
   })
   init()
+}
+
+function modeBtnText(){
+  if (mode === 1){
+    modeBtn.innerText = `Easy Mode`
+  } else {
+    modeBtn.innerText = `Hard Mode`
+  }
 }
