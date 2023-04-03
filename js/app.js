@@ -95,17 +95,14 @@ function clickInput(evt) {
 
 function findCell() {
   let row = (6 - guessesRemaining)
-  console.log('row',row)
   let cell = nextLetter
   let currentCellEl = document.getElementById(`r${row}c${cell}`)
-  console.log(currentCellEl)
   return currentCellEl
 }
 
 function insertLetter(str) {
   findCell().textContent = str
   currentGuess.push(str)
-  console.log(currentGuess)
   nextLetter += 1
 }
 
@@ -143,6 +140,7 @@ function newRow(){
 }
 
 function compareGuess() {
+  winOrLose()
   let guessArray = currentGuess.split('')
   let winArray = winningWord.split('')
   console.log(winArray)
@@ -158,26 +156,26 @@ function compareGuess() {
       console.log('yellow', guessArray[i])
     }
   }
-  
-
 }
 
-  //   if (currentGuess === winningWord) {
-  //     winner = true
-  //     console.log('win')
-  //   } else {
-  //     compareWords()
-  //     guessesRemaining++
-  //   }
-  // }
-  
-  // function compareWords(winningWord, currentGuess) {
-  //   console.log(winningWord)
-  //   console.log(currentGuess)
-  //   currentGuess.forEach(function(letter, idx) {
-  //     if 
-  
-  //   })
-  // }
+function winOrLose(){
+  if (currentGuess === winningWord) {
+    if (guessesRemaining === 6) {
+      messageEL.textContent = `Luck you!`
+    } else if (guessesRemaining === 5) {
+      messageEL.textContent = `Spectacular!`
+    } else if (guessesRemaining === 4) {
+      messageEL.textContent = `Stunning!`
+    } else if (guessesRemaining === 3) {
+      messageEL.textContent = `Grand!`
+    } else if (guessesRemaining === 2) {
+      messageEL.textContent = `Brilliant!`
+    } else if (guessesRemaining === 1){
+      messageEL.textContent = `Well done!`
+    }
+  } else if (guessesRemaining === 0){
+    messageEL.textContent = `Better luck next time! The word was ${winningWord}`
+  }
+}
 
 

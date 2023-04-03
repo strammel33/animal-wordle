@@ -166,6 +166,7 @@ const easyAnimals = [
   'WHALE',
   'SLOTH',
   'LORIS',
+  'STOAT'
 ]
 
 function getRandomAnimal() {
