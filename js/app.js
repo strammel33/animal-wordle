@@ -147,17 +147,19 @@ function compareGuess() {
   winOrLose()
   let guessArray = currentGuess.split('')
   let winArray = winningWord.split('')
-  console.log(winArray)
+  let row = (6 - guessesRemaining)
+ 
   for (let i = 0; i < guessArray.length; i++){
-    if (guessArray[i] === winArray[i]){
-      //turn green
-      console.log('green', guessArray[i])
-    } else if (!winArray.includes(guessArray[i])){
-      //turn gray
-      console.log('gray', guessArray[i])
+    let currentCellEl = document.getElementById(`r${row}c${i}`)
+    let currentKeyEl = document.getElementById(`${guessArray[i]}`)
+    currentKeyEl.style.backgroundColor = 'gray'
+    
+    if (guessArray[i] === winArray[i]) {
+      currentCellEl.style.backgroundColor = 'green'
+    } else if (!winArray.includes(guessArray[i])) {
+      currentCellEl.style.backgroundColor = 'gray'
     } else {
-      //turn yellow
-      console.log('yellow', guessArray[i])
+      currentCellEl.style.backgroundColor = 'yellow'
     }
   }
 }
@@ -188,6 +190,10 @@ function winOrLose(){
 function reset() {
   cellEl.forEach(function(cell) {
     cell.textContent = ''
+    cell.style.backgroundColor = 'white'
+  })
+  keyEl.forEach(function(key) {
+    key.style.backgroundColor = 'white'
   })
   init()
 }
