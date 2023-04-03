@@ -30,7 +30,7 @@ keyboardEl.addEventListener('click', clickInput)
 
 // document.addEventListener('keydown', keyInput)
 
-// resetBtn.addEventListener('click', init)
+resetBtn.addEventListener('click', reset)
 
 /*----------------------- FUNCTIONS ---------------------------------*/
 init()
@@ -41,13 +41,7 @@ function init(){
   nextLetter = 0
   mode = 1
   winner = false
-  gamePlay()
-  //need a way to have a clear board for reset
-}
-
-function gamePlay() {
   getWord()
-
 }
 
 function getWord() {
@@ -65,23 +59,27 @@ function modeChoice() {
 }
 
 function clickInput(evt) {
-  if (guessesRemaining === 0) {
-    return
-  }
-  let clickKey = evt.target.id
-  if (clickKey === '') {
-    return
-  }
-  if (clickKey === "delete") {
-    deleteLetter()
-    return
-  } if (clickKey === "enter" && nextLetter === 5 ) {
-    submitGuess()
-    return
-  } if (clickKey === "enter" && nextLetter != 5) {
-    return
+  if (winner === false) {
+    if (guessesRemaining === 0) {
+      return
+    }
+    let clickKey = evt.target.id
+    if (clickKey === '') {
+      return
+    }
+    if (clickKey === "delete") {
+      deleteLetter()
+      return
+    } if (clickKey === "enter" && nextLetter === 5 ) {
+      submitGuess()
+      return
+    } if (clickKey === "enter" && nextLetter != 5) {
+      return
+    } else {
+      insertLetter(clickKey)
+    }
   } else {
-    insertLetter(clickKey)
+    return
   }
 }
 
@@ -160,6 +158,7 @@ function compareGuess() {
 
 function winOrLose(){
   if (currentGuess === winningWord) {
+    winner = true
     if (guessesRemaining === 6) {
       messageEL.textContent = `Luck you!`
     } else if (guessesRemaining === 5) {
@@ -173,9 +172,16 @@ function winOrLose(){
     } else if (guessesRemaining === 1){
       messageEL.textContent = `Well done!`
     }
-  } else if (guessesRemaining === 0){
+    resetBtn.textContent = `Play Again`
+  } else if (guessesRemaining === 0) {
     messageEL.textContent = `Better luck next time! The word was ${winningWord}`
+    resetBtn.textContent = `Play Again`
   }
 }
 
-
+function reset() {
+  cellEl.forEach(function(cell) {
+    cell.textContent = ''
+  })
+  init()
+}
