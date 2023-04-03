@@ -41,6 +41,7 @@ function init(){
   nextLetter = 0
   mode = 1
   winner = false
+  messageEL.textContent = `How well do you know your 5-letter animals?`
   getWord()
   modeBtnText()
 }
@@ -148,20 +149,41 @@ function compareGuess() {
   let guessArray = currentGuess.split('')
   let winArray = winningWord.split('')
   let row = (6 - guessesRemaining)
- 
-  for (let i = 0; i < guessArray.length; i++){
-    let currentCellEl = document.getElementById(`r${row}c${i}`)
-    let currentKeyEl = document.getElementById(`${guessArray[i]}`)
+
+  let winLetterCount = winArray.reduce(function(prev, letter){
+    if(prev[letter]) {
+      prev[letter] = prev[letter] + 1
+    } else {
+      prev[letter] = 1
+    }
+    return prev
+  }, {})
+console.log(winLetterCount)
+
+  let guessLetterCount = guessArray.reduce(function(prev, letter){
+    if(prev[letter]) {
+      prev[letter] = prev[letter] + 1
+    } else {
+      prev[letter] = 1
+    }
+    return prev
+  }, {})
+  console.log(guessLetterCount)
+
+  guessArray.forEach(function(letter, idx) {
+    let currentCellEl = document.getElementById(`r${row}c${idx}`)
+    let currentKeyEl = document.getElementById(`${guessArray[idx]}`)
     currentKeyEl.style.backgroundColor = 'gray'
-    
-    if (guessArray[i] === winArray[i]) {
+
+    if (letter === winArray[idx]) {
       currentCellEl.style.backgroundColor = 'green'
-    } else if (!winArray.includes(guessArray[i])) {
+      currentKeyEl.style.backgroundColor = 'green'
+    } else if (!winArray.includes(letter) || (guessLetterCount[letter] > winLetterCount[letter])){
       currentCellEl.style.backgroundColor = 'gray'
     } else {
       currentCellEl.style.backgroundColor = 'yellow'
     }
-  }
+  })
 }
 
 function winOrLose(){
