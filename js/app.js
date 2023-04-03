@@ -128,11 +128,31 @@ function submitGuess() {
   }
   if (animalArray.includes(currentGuess)){
     compareGuess()
+    guessesRemaining--
   } else {
     return
   }
 }
 
+function compareGuess() {
+  let guessArray = currentGuess.split('')
+  let winArray = winningWord.split('')
+  console.log(winArray)
+  for (let i = 0; i < guessArray.length; i++){
+    if (guessArray[i] === winArray[i]){
+      //turn green
+      console.log('green', guessArray[i])
+    } else if (!winArray.includes(guessArray[i])){
+      //turn gray
+      console.log('gray', guessArray[i])
+    } else {
+      //turn yellow
+      console.log('yellow', guessArray[i])
+    }
+  }
+  
+
+}
 
   //   if (currentGuess === winningWord) {
   //     winner = true
