@@ -110,9 +110,13 @@ function insertLetter(str) {
 }
 
 function deleteLetter() {
-  nextLetter--
-  findCell().textContent = ''
-  currentGuess.pop()
+  if (nextLetter != 0){
+    nextLetter--
+    findCell().textContent = ''
+    currentGuess.pop()
+  } else {
+    return
+  }
 }
 
 function submitGuess() {
@@ -125,11 +129,17 @@ function submitGuess() {
   }
   if (animalArray.includes(currentGuess)){
     compareGuess()
-    guessesRemaining = guessesRemaining - 1
-    nextLetter = 0
+    newRow()
   } else {
+    currentGuess = currentGuess.split('')
     return
   }
+}
+
+function newRow(){
+  guessesRemaining = guessesRemaining - 1
+  nextLetter = 0
+  currentGuess = []
 }
 
 function compareGuess() {
