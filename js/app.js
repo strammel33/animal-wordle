@@ -28,7 +28,9 @@ modeBtn.addEventListener('click', modeChoice)
 
 keyboardEl.addEventListener('click', clickInput)
 
-document.addEventListener('keydown', keyInput)
+// document.addEventListener('keydown', keyInput)
+
+// resetBtn.addEventListener('click', init)
 
 /*----------------------- FUNCTIONS ---------------------------------*/
 init()
@@ -39,36 +41,31 @@ function init(){
   nextLetter = 0
   mode = 1
   winner = false
+  gamePlay()
+  //need a way to have a clear board for reset
+}
+
+function gamePlay() {
   getWord()
-  makeGuess()
-}
 
-function makeGuess() {
-  clickInput()
-  insertLetter(str)
-  nextCell()
-}
-
-function reset() {
-  keyEl.className = "key"
 }
 
 function getWord() {
   mode === 1 ? winningWord = getRandomEasyAnimal() : winningWord = getRandomAnimal()
   return winningWord
-  //Need CSS that changes the text on the button
 }
 
 function modeChoice() {
-  return mode = mode * -1
+  if (guessesRemaining === 6){
+    return mode = mode * -1
+  } else {
+    return
+  }
+  //Need CSS that changes the text on the button
 }
 
 function clickInput(evt) {
   if (guessesRemaining === 0) {
-    return
-  }
-  let usedKey = evt.target.className
-  if (usedKey === "gray") {
     return
   }
   let clickKey = evt.target.id
@@ -88,28 +85,28 @@ function clickInput(evt) {
   }
 }
 
-function keyInput(evt) {
-  if (guessesRemaining === 0) {
-    return
-  }
-  //learn how to use a keyboard
-}
+// function keyInput(evt) {
+//   if (guessesRemaining === 0) {
+//     return
+//   }
+//   learn how to use a keyboard
+// }
+
 
 function findCell() {
   let row = (6 - guessesRemaining)
+  console.log('row',row)
   let cell = nextLetter
   let currentCellEl = document.getElementById(`r${row}c${cell}`)
+  console.log(currentCellEl)
   return currentCellEl
 }
 
 function insertLetter(str) {
   findCell().textContent = str
   currentGuess.push(str)
-  nextCell()
-}
-
-function nextCell() {
-  nextLetter++
+  console.log(currentGuess)
+  nextLetter += 1
 }
 
 function deleteLetter() {
@@ -128,7 +125,8 @@ function submitGuess() {
   }
   if (animalArray.includes(currentGuess)){
     compareGuess()
-    guessesRemaining--
+    guessesRemaining = guessesRemaining - 1
+    nextLetter = 0
   } else {
     return
   }
