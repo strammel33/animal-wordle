@@ -104,6 +104,8 @@ function keyInput(evt) {
     } if (pressKey === "ENTER" && nextLetter === 5 ) {
       submitGuess()
       return
+    } if (pressKey === "ENTER" && nextLetter != 5) {
+      return
     } else {
       insertLetter(pressKey)
     }
@@ -192,30 +194,17 @@ function compareGuess() {
         currentCellEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
       }
     }
+    console.log(guessesRemaining)
   }
 }
 
-
 function winOrLose(){
   if (currentGuess === winningWord) {
-    winner = true
-    if (guessesRemaining === 6) {
-      messageEL.textContent = `Luck you!`
-    } else if (guessesRemaining === 5) {
-      messageEL.textContent = `Spectacular!`
-    } else if (guessesRemaining === 4) {
-      messageEL.textContent = `Stunning!`
-    } else if (guessesRemaining === 3) {
-      messageEL.textContent = `Grand!`
-    } else if (guessesRemaining === 2) {
-      messageEL.textContent = `Brilliant!`
-    } else if (guessesRemaining === 1){
-      messageEL.textContent = `Well done!`
-    }
-    resetBtn.textContent = `Play Again`
+    winningMessage()
   } else if (guessesRemaining === 0) {
-    messageEL.textContent = `Better luck next time! The word was ${winningWord}`
-    resetBtn.textContent = `Play Again`
+    losingMessage()
+  } else {
+    return
   }
 }
 
@@ -227,7 +216,6 @@ function reset() {
   keyEl.forEach(function(key) {
     key.style.backgroundColor = 'rgb(206, 224, 239)'
   })
-  resetBtn.textContent = 'Reset Game'
   init()
 }
 
@@ -237,4 +225,26 @@ function modeBtnText(){
   } else {
     modeBtn.innerText = `Hard Mode`
   }
+}
+
+function winningMessage(){
+  if (guessesRemaining === 6) {
+    messageEL.textContent = `Luck you!`
+  } else if (guessesRemaining === 5) {
+    messageEL.textContent = `Spectacular!`
+  } else if (guessesRemaining === 4) {
+    messageEL.textContent = `Stunning!`
+  } else if (guessesRemaining === 3) {
+    messageEL.textContent = `Grand!`
+  } else if (guessesRemaining === 2) {
+    messageEL.textContent = `Brilliant!`
+  } else if (guessesRemaining === 1){
+    messageEL.textContent = `Well done!`
+  }
+  resetBtn.textContent = `Play Again`
+}
+
+function losingMessage(){
+  messageEL.textContent = `Better luck next time! The word was ${winningWord}`
+  resetBtn.textContent = `Play Again`
 }
