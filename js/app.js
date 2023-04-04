@@ -227,6 +227,7 @@ function reset() {
   keyEl.forEach(function(key) {
     key.style.backgroundColor = 'rgb(206, 224, 239)'
   })
+  resetBtn.textContent = 'Reset Game'
   init()
 }
 
