@@ -10,8 +10,6 @@ let currentGuess, guessesRemaining, nextLetter, mode, winner, winningWord
 
 /*------------------- CACHED ELEMENT REFERENCES -------------------*/
 
-const boardEl = document.getElementById('board')
-
 const cellEl = document.querySelectorAll('.cell')
 
 const keyboardEl = document.querySelector('.keyboard')
@@ -63,8 +61,6 @@ function updateMode() {
     return
   }
 }
-
-
 
 function clickInput(evt) {
   if (winner === false) {
@@ -175,26 +171,32 @@ function compareGuess() {
     return prev
   }, {})
 
+  checkForGreen(guessArray, winArray, row, winLetterCount)
+  checkForYellow(guessArray, winArray, row, winLetterCount)
+}
+
+function checkForGreen(guessArray, winArray, row, winLetterCount){
+  for (let i = 0; i < guessArray.length; i++) {
+    let currentCellEl = document.getElementById(`r${row}c${i}`)
+    if (guessArray[i] === winArray[i]) {
+      currentCellEl.style.backgroundColor = 'green'
+      winLetterCount[guessArray[i]] = winLetterCount[guessArray[i]] - 1
+    }
+  } return winLetterCount
+}
+
+function checkForYellow(guessArray, winArray, row, winLetterCount){
   for (let i = 0; i < guessArray.length; i++) {
     let currentCellEl = document.getElementById(`r${row}c${i}`)
     let currentKeyEl = document.getElementById(`${guessArray[i]}`)
-    currentKeyEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
-    let letter = guessArray[i]
-    
-    
-    if (guessArray[i] === winArray[i]) {
-    currentCellEl.style.backgroundColor = 'rgb(28, 119, 75)'
-    winLetterCount[letter] = --winLetterCount[letter]
-    } else if (!winArray.includes(letter)) {
-      currentCellEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
-    } else {
-      if (winLetterCount[letter] === 1) {
-        currentCellEl.style.backgroundColor = 'rgba(225, 225, 67, 0.702)'
+    if (guessArray[i] !== winArray[i]) {
+      if (winArray.includes(guessArray[i]) && (winLetterCount[guessArray[i]] > 0)) {
+        currentCellEl.style.backgroundColor = 'yellow'
       } else {
         currentCellEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
+        currentKeyEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
       }
     }
-    console.log(guessesRemaining)
   }
 }
 
