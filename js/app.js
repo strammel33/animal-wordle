@@ -55,7 +55,7 @@ function getWord() {
 
 
 function updateMode() {
-  if (guessesRemaining === 6) {
+  if (guessesRemaining === 6 && nextLetter === 0) {
     mode = mode * -1
     getWord()
     modeBtnText()
@@ -97,7 +97,6 @@ function keyInput(evt) {
       return
     }
     let pressKey = evt.key.toUpperCase()
-    console.log(pressKey)
     if (!allowedKeys.includes(pressKey)) {
       return
     } if (pressKey === "BACKSPACE") {
@@ -113,7 +112,6 @@ function keyInput(evt) {
     return
   }
 }
-
 
 function findCell() {
   let row = (6 - guessesRemaining)
@@ -176,29 +174,28 @@ function compareGuess() {
     return prev
   }, {})
 
-  let guessLetterCount = guessArray.reduce(function(prev, letter){
-    if(prev[letter]) {
-      prev[letter] = prev[letter] + 1
-    } else {
-      prev[letter] = 1
-    }
-    return prev
-  }, {})
-
-  guessArray.forEach(function(letter, idx) {
-    let currentCellEl = document.getElementById(`r${row}c${idx}`)
-    let currentKeyEl = document.getElementById(`${guessArray[idx]}`)
+  for (let i = 0; i < guessArray.length; i++) {
+    let currentCellEl = document.getElementById(`r${row}c${i}`)
+    let currentKeyEl = document.getElementById(`${guessArray[i]}`)
     currentKeyEl.style.backgroundColor = 'gray'
-
-    if (letter === winArray[idx]) {
-      currentCellEl.style.backgroundColor = 'green'
-    } else if (!winArray.includes(letter) || (guessLetterCount[letter] > winLetterCount[letter])){
+    let letter = guessArray[i]
+    
+    
+    if (guessArray[i] === winArray[i]) {
+    currentCellEl.style.backgroundColor = 'green'
+    winLetterCount[letter] = --winLetterCount[letter]
+    } else if (!winArray.includes(letter)) {
       currentCellEl.style.backgroundColor = 'gray'
     } else {
-      currentCellEl.style.backgroundColor = 'yellow'
+      if (winLetterCount[letter] === 1) {
+        currentCellEl.style.backgroundColor = 'yellow'
+      } else {
+        currentCellEl.style.backgroundColor = 'gray'
+      }
     }
-  })
+  }
 }
+
 
 function winOrLose(){
   if (currentGuess === winningWord) {
