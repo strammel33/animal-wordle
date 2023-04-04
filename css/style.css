@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  
 }
 
 *,
@@ -9,13 +10,14 @@ html {
 }
 
 body {
+  --container-bg: rgba(121, 122, 125, 0.363);
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+  background-color: rgb(206, 224, 239);
 }
 
 /* header (includes title, message, help button(and content), and difficulty button */
@@ -25,6 +27,9 @@ header {
   justify-content: center;
   align-items: center;
   width: 650px;
+  background-color: var(--container-bg);
+  margin-top: 1vmin;
+  border: 2px solid 
 }
 
 .title-message{
@@ -51,9 +56,11 @@ aside {
 }
 
 .dropbtn {
-  background-color: green;
+  background-color: rgba(74, 83, 112, 0.363);
   font-size: 16px;
   padding: 1vmin 0.5vmin;
+  border-radius: 0px;
+  margin: 0;
 }
 
 .drop-content {
@@ -89,7 +96,7 @@ button {
 }
 
 .cell {
-  border: 2px solid black;
+  border: 2.5px solid rgba(36, 36, 37, 0.844);
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
@@ -109,8 +116,8 @@ button {
 }
 
 section > div > div {
-  background-color: white;
-  padding: 1vmin;
+  font-size: 18px;
+  padding: 1.25vmin;
   margin: .5vmin;
   border: 2px solid black;
   border-radius: 4px;
@@ -119,4 +126,4 @@ section > div > div {
 
 .drop-content a:hover {background-color: rgb(255, 0, 0);}
 aside:hover .drop-content {display: block;}
-aside:hover .dropbtn {background-color: blueviolet;}
+aside:hover .dropbtn {background-color: rgb(54, 87, 234);}
