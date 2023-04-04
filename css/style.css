@@ -25,7 +25,6 @@ header {
   justify-content: center;
   align-items: center;
   width: 650px;
-  border: 2px solid black;
 }
 
 .title-message{
@@ -33,13 +32,16 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 0px;
 }
 
 h1 {
-  height: 16px;
-  padding: 0;
-  margin: 0;
+  margin: 1vmin 0;
+}
 
+#message {
+  margin: 0 auto;
+  font-size: 22px;
 }
 
 aside {
@@ -51,8 +53,7 @@ aside {
 .dropbtn {
   background-color: green;
   font-size: 16px;
-  padding: 10px 3px;
-  margin: 3px
+  padding: 1vmin 0.5vmin;
 }
 
 .drop-content {
@@ -72,8 +73,10 @@ ul {
 
 button {
   background-color: white;
+  font-size: 16px;
+  padding: 10px 3px;
   margin: 1vmin;
-  padding: 1vmin;
+  border-radius: 4px;
   cursor: pointer;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -96,7 +99,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
+  margin: 0;
+  padding: 0;
 }
 
 .keyboard div {
