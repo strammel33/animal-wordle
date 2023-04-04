@@ -62,7 +62,6 @@ function updateMode() {
   } else {
     return
   }
-  console.log(winningWord)
 }
 
 
