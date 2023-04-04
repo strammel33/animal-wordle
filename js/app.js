@@ -176,20 +176,20 @@ function compareGuess() {
   for (let i = 0; i < guessArray.length; i++) {
     let currentCellEl = document.getElementById(`r${row}c${i}`)
     let currentKeyEl = document.getElementById(`${guessArray[i]}`)
-    currentKeyEl.style.backgroundColor = 'gray'
+    currentKeyEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
     let letter = guessArray[i]
     
     
     if (guessArray[i] === winArray[i]) {
-    currentCellEl.style.backgroundColor = 'green'
+    currentCellEl.style.backgroundColor = 'rgb(28, 119, 75)'
     winLetterCount[letter] = --winLetterCount[letter]
     } else if (!winArray.includes(letter)) {
-      currentCellEl.style.backgroundColor = 'gray'
+      currentCellEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
     } else {
       if (winLetterCount[letter] === 1) {
-        currentCellEl.style.backgroundColor = 'yellow'
+        currentCellEl.style.backgroundColor = 'rgba(225, 225, 67, 0.702)'
       } else {
-        currentCellEl.style.backgroundColor = 'gray'
+        currentCellEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
       }
     }
   }
@@ -222,10 +222,10 @@ function winOrLose(){
 function reset() {
   cellEl.forEach(function(cell) {
     cell.textContent = ''
-    cell.style.backgroundColor = 'white'
+    cell.style.backgroundColor = 'rgb(206, 224, 239)'
   })
   keyEl.forEach(function(key) {
-    key.style.backgroundColor = 'white'
+    key.style.backgroundColor = 'rgb(206, 224, 239)'
   })
   init()
 }

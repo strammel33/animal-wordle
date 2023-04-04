@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  --container-bg: rgba(121, 122, 125, 0.363);
+  --container-bg: rgba(47, 90, 156, 0.363);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -41,6 +41,7 @@ header {
 }
 
 h1 {
+  font-size: 40px;
   margin: 1vmin 0;
 }
 
@@ -56,10 +57,11 @@ aside {
 }
 
 .dropbtn {
-  background-color: rgba(74, 83, 112, 0.363);
+  background-color: var(--container-bg);
   font-size: 16px;
-  padding: 1vmin 0.5vmin;
+  padding: .75vmin 0.5vmin;
   border-radius: 0px;
+  border: none;
   margin: 0;
 }
 
@@ -79,25 +81,29 @@ ul {
 }
 
 button {
-  background-color: white;
+  background-color: rgba(74, 83, 112, 0.363);
   font-size: 16px;
-  padding: 10px 3px;
-  margin: 1vmin;
+  padding: 8px 3px;
+  margin: .5vmin;
   border-radius: 4px;
   cursor: pointer;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.reset {
+  margin-bottom: 0px;
 }
 
 #board {
   display: grid;
   grid-template-rows: repeat(6, 7vmin);
   grid-template-columns: repeat(5, 7vmin);
-  grid-gap: 2vmin 1vmin;
+  grid-gap: 1.75vmin .75vmin;
 }
 
 .cell {
-  border: 2.5px solid rgba(36, 36, 37, 0.844);
-  font-size: 8vmin;
+  border: 2.5px solid rgba(36, 36, 37, 0.966);
+  font-size: 5vmin;
   text-align: center;
   vertical-align: middle;
 }
@@ -116,7 +122,8 @@ button {
 }
 
 section > div > div {
-  font-size: 18px;
+  font-size: 2.5vmin;
+  font-weight: bold;
   padding: 1.25vmin;
   margin: .5vmin;
   border: 2px solid black;
@@ -124,6 +131,6 @@ section > div > div {
   cursor: pointer;
 }
 
-.drop-content a:hover {background-color: rgb(255, 0, 0);}
+.drop-content a:hover {background-color: rgb(255, 0, 0)}
 aside:hover .drop-content {display: block;}
-aside:hover .dropbtn {background-color: rgb(54, 87, 234);}
+aside:hover .dropbtn {background-color: rgba(47, 91, 156, 0.766); color: white;}
