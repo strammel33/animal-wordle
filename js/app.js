@@ -246,15 +246,23 @@ function winningMessage(){
     messageEL.textContent = `Well done!`
   }
   resetBtn.textContent = `Play Again`
+  makeResetPulse()
 }
 
 function losingMessage(){
   messageEL.textContent = `Better luck next time! The word was ${winningWord}!`
   resetBtn.textContent = `Play Again`
+  makeResetPulse()
 }
 
 function makeBoardShake(){
   boardEl.classList.remove('animate__animated', 'animate__shakeX')
   boardEl.offsetHeight
   boardEl.classList.add('animate__animated', 'animate__shakeX')
+}
+
+function makeResetPulse(){
+  resetBtn.classList.remove('animate__animated', 'animate__pulse', 'animate__delay-1s', 'animate__repeat-5')
+  resetBtn.offsetHeight
+  resetBtn.classList.add('animate__animated', 'animate__pulse', 'animate__delay-1s', 'animate__repeat-5')
 }
