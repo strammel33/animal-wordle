@@ -10,7 +10,6 @@ html {
 }
 
 body {
-  --container-bg: rgba(47, 90, 156, 0.363);
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -42,6 +42,7 @@ function init(){
   mode = 1
   winner = false
   messageEL.textContent = `How well do you know your 5-letter animals?`
+  resetBtn.innerText = `Reset Game`
   getWord()
   modeBtnText()
 }
