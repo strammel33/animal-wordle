@@ -157,11 +157,10 @@ function newRow(){
 }
 
 function compareGuess() {
-  winOrLose()
   let guessArray = currentGuess.split('')
   let winArray = winningWord.split('')
   let row = (6 - guessesRemaining)
-
+  
   let winLetterCount = winArray.reduce(function(prev, letter){
     if(prev[letter]) {
       prev[letter] = prev[letter] + 1
@@ -170,9 +169,13 @@ function compareGuess() {
     }
     return prev
   }, {})
-
+  
   checkForGreen(guessArray, winArray, row, winLetterCount)
   checkForYellow(guessArray, winArray, row, winLetterCount)
+  winOrLose()
+  console.log('currentGuess', currentGuess)
+  console.log('winningWord', winningWord)
+  console.log('guesses remaining', guessesRemaining)
 }
 
 function checkForGreen(guessArray, winArray, row, winLetterCount){
@@ -203,7 +206,7 @@ function checkForYellow(guessArray, winArray, row, winLetterCount){
 function winOrLose(){
   if (currentGuess === winningWord) {
     winningMessage()
-  } else if (guessesRemaining === 0) {
+  } if (guessesRemaining === 1) {
     losingMessage()
   } else {
     return

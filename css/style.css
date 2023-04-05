@@ -24,7 +24,7 @@ body {
 header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-image: url(../assets/images/silhouette.jpg);
   background-size: contain;
@@ -40,12 +40,14 @@ header {
   justify-content: flex-start;
   align-items: center;
   padding-bottom: 0px;
+  margin-bottom: 5.9vmin;
 }
 
 h1 {
   padding: 0 1vmin;
   font-size: 38px;
-  background-color: rgba(47, 91, 156, 0.829);
+  /* background-color: rgba(47, 91, 156, 0.829); */
+  margin: 0 
 }
 
 #message {
@@ -72,7 +74,7 @@ aside {
 .drop-content {
   display: none;
   position: absolute;
-  background-color: lavender;
+  background-color: rgb(77, 105, 77);
   width: 650px;
   right: 0;
   z-index: 1;
