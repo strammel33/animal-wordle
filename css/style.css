@@ -29,7 +29,7 @@ header {
   align-items: center;
   background-image: url(../assets/images/silhouette.jpg);
   background-size: contain;
-  width: 650px;
+  width: 70vmin;
   height: 135px;
   margin-top: 1.5vmin;
   border: 3px solid 
