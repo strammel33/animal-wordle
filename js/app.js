@@ -179,7 +179,7 @@ function checkForGreen(guessArray, winArray, row, winLetterCount){
   for (let i = 0; i < guessArray.length; i++) {
     let currentCellEl = document.getElementById(`r${row}c${i}`)
     if (guessArray[i] === winArray[i]) {
-      currentCellEl.style.backgroundColor = 'green'
+      currentCellEl.style.backgroundColor = 'rgba(25, 108, 25, 0.657)'
       winLetterCount[guessArray[i]] = winLetterCount[guessArray[i]] - 1
     }
   } return winLetterCount
@@ -191,7 +191,7 @@ function checkForYellow(guessArray, winArray, row, winLetterCount){
     let currentKeyEl = document.getElementById(`${guessArray[i]}`)
     if (guessArray[i] !== winArray[i]) {
       if (winArray.includes(guessArray[i]) && (winLetterCount[guessArray[i]] > 0)) {
-        currentCellEl.style.backgroundColor = 'yellow'
+        currentCellEl.style.backgroundColor = 'rgba(209, 209, 58, 0.685)'
       } else {
         currentCellEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'
         currentKeyEl.style.backgroundColor = 'rgba(74, 83, 112, 0.363)'

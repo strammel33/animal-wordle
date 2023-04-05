@@ -14,22 +14,26 @@
 <body>
     <header>
         <div class="title-message">
-            <h1>Animal Wordle</h1>
-            <h3 id="message">some fun slogan to play, change to win or lose</h3>
+            <h1>ANIMAL WORDLE</h1>      
         </div>
         <aside class="dropdown">
             <button class="dropbtn">Play Guide</button>
             <ul class="drop-content">
-                <li>Hard Mode - Warning! Contains animals you may not be familiar with</li>
-                <li>No plurals (end in -s or 'geese' for 'goose')</li>
-                <li>No abbreviations ('rhino' for 'rhinoceros')</li>
-                <li>No terms derived from animals sex ('queen' for 'cat')</li>
-                <li>Vertebrates only</li>
-                <li>No hybrids ('liger')</li>
+                <li>⚠️ HARD MODE contains animals you may not be familiar with ⚠️</li>
+                <li> </li>
+                <li>Dictionary does not include: </li>
+                <li>Plurals</li>
+                <li>Abbreviations</li>
+                <li>Terms derived from an animal's sex/age</li>
+                <li>Invertebrates</li>
+                <li>Hybrids</li>
             </ul>
         </aside>
     </header>
-    <button class="mode-btn">Easy Mode</button>
+
+    <section class="message">
+        <h3 id="message"></h3>
+    </section>
 
     <section id="board">
         <div class="cell" id="r0c0"></div>
@@ -64,7 +68,10 @@
         <div class="cell" id="r5c4"></div>
     </section>
 
-    <button class="reset">Reset Game</button>
+    <section class="buttons">
+        <button class="mode-btn">Easy Mode</button>
+        <button class="reset">Reset Game</button>
+    </section>
     
     <section class="keyboard">
         <div class="row0">
