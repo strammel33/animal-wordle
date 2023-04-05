@@ -22,6 +22,8 @@ const modeBtn = document.getElementById('mode-btn')
 
 const messageEL = document.getElementById('message')
 
+const boardEl = document.getElementById('board')
+
 /*--------------------- EVENT LISTENERS --------------------------*/
 
 modeBtn.addEventListener('click', updateMode)
@@ -81,6 +83,7 @@ function clickInput(evt) {
       submitGuess()
       return
     } if (clickKey === "enter" && nextLetter != 5) {
+      makeBoardShake()
       return
     } else {
       insertLetter(clickKey)
@@ -105,6 +108,7 @@ function keyInput(evt) {
       submitGuess()
       return
     } if (pressKey === "ENTER" && nextLetter != 5) {
+      makeBoardShake()
       return
     } else {
       insertLetter(pressKey)
@@ -149,6 +153,7 @@ function submitGuess() {
     compareGuess()
     newRow()
   } else {
+    makeBoardShake()
     currentGuess = currentGuess.split('')
     return
   }
@@ -246,4 +251,10 @@ function winningMessage(){
 function losingMessage(){
   messageEL.textContent = `Better luck next time! The word was ${winningWord}!`
   resetBtn.textContent = `Play Again`
+}
+
+function makeBoardShake(){
+  boardEl.classList.remove('animate__animated', 'animate__shakeX')
+  boardEl.offsetHeight
+  boardEl.classList.add('animate__animated', 'animate__shakeX')
 }
