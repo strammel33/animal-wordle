@@ -226,7 +226,6 @@ function reset() {
   init()
 }
 
-
 function winningMessage(){
   if (guessesRemaining === 6) {
     messageEL.textContent = `Luck you!`
