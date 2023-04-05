@@ -223,10 +223,10 @@ function winOrLose(){
 function reset() {
   cellEl.forEach(function(cell) {
     cell.textContent = ''
-    cell.style.backgroundColor = 'rgb(206, 224, 239)'
+    cell.style.backgroundColor = ''
   })
   keyEl.forEach(function(key) {
-    key.style.backgroundColor = 'rgb(206, 224, 239)'
+    key.style.backgroundColor = ''
   })
   init()
 }
