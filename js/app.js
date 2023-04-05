@@ -16,9 +16,9 @@ const keyboardEl = document.querySelector('.keyboard')
 
 const keyEl = document.querySelectorAll('.key')
 
-const resetBtn = document.querySelector('.reset')
+const resetBtn = document.getElementById('reset-btn')
 
-const modeBtn = document.querySelector('.mode-btn')
+const modeBtn = document.getElementById('mode-btn')
 
 const messageEL = document.getElementById('message')
 
@@ -51,7 +51,6 @@ function getWord() {
   return winningWord
 }
 
-
 function updateMode() {
   if (guessesRemaining === 6 && nextLetter === 0) {
     mode = mode * -1
@@ -60,6 +59,10 @@ function updateMode() {
   } else {
     return
   }
+}
+
+function modeBtnText(){
+  mode === 1 ? modeBtn.innerText = `Easy Mode` : modeBtn.innerText = `Hard Mode`
 }
 
 function clickInput(evt) {
@@ -173,9 +176,6 @@ function compareGuess() {
   checkForGreen(guessArray, winArray, row, winLetterCount)
   checkForYellow(guessArray, winArray, row, winLetterCount)
   winOrLose()
-  console.log('currentGuess', currentGuess)
-  console.log('winningWord', winningWord)
-  console.log('guesses remaining', guessesRemaining)
 }
 
 function checkForGreen(guessArray, winArray, row, winLetterCount){
@@ -205,6 +205,7 @@ function checkForYellow(guessArray, winArray, row, winLetterCount){
 
 function winOrLose(){
   if (currentGuess === winningWord) {
+    winner = true
     winningMessage()
   } if (guessesRemaining === 1) {
     losingMessage()
@@ -224,13 +225,6 @@ function reset() {
   init()
 }
 
-function modeBtnText(){
-  if (mode === 1){
-    modeBtn.innerText = `Easy Mode`
-  } else {
-    modeBtn.innerText = `Hard Mode`
-  }
-}
 
 function winningMessage(){
   if (guessesRemaining === 6) {
@@ -250,6 +244,6 @@ function winningMessage(){
 }
 
 function losingMessage(){
-  messageEL.textContent = `Better luck next time! The word was ${winningWord}`
+  messageEL.textContent = `Better luck next time! The word was ${winningWord}!`
   resetBtn.textContent = `Play Again`
 }
