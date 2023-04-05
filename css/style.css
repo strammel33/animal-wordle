@@ -25,7 +25,6 @@ header {
   background-image: url(../assets/images/silhouette.jpg);
   background-size: contain;
   width: 80vmin;
-  margin-top: 1.5vmin;
   border: 3px solid 
 }
 
@@ -81,8 +80,8 @@ ul {
 
 button {
   background-color: rgba(47, 91, 156, 0.375);
-  font-size: 16px;
-  padding: 8px 3px;
+  font-size: 18px;
+  padding: .8vmin 1vmin;
   margin: 1vmin .8vmin .8vmin .8vmin;
   border-radius: 4px;
   cursor: pointer;
