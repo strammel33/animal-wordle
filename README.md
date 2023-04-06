@@ -1,4 +1,4 @@
-# Animal Wordle
+# 🐪 Animal Wordle 🐴
 ***
 ![gamestart](./assets/images/game-start-screenshot.png)
 
@@ -78,7 +78,7 @@ The game has two difficulty levels: easy and hard. The default setting is easy. 
 * Birdle: bird-only dictionary
 * Animation during guess assessment
 ***
-### Dedications:
+### 💙 Dedications 💙
 ---
 **My mom** - brags about winning the NYT Wordle every day but can't win this one.
 
