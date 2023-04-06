@@ -1,4 +1,4 @@
-# 🐪 Animal Wordle 🐴
+# 🐪 Animal Wordle 🐎
 ***
 ![gamestart](./assets/images/game-start-screenshot.png)
 
