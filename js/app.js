@@ -262,7 +262,7 @@ function makeBoardShake(){
 }
 
 function makeResetPulse(){
-  resetBtn.classList.remove('animate__animated', 'animate__pulse', 'animate__delay-1s', 'animate__repeat-5')
+  resetBtn.classList.remove('animate__animated', 'animate__pulse', 'animate__delay-1s', 'animate__repeat-3')
   resetBtn.offsetHeight
-  resetBtn.classList.add('animate__animated', 'animate__pulse', 'animate__delay-1s', 'animate__repeat-5')
+  resetBtn.classList.add('animate__animated', 'animate__pulse', 'animate__delay-1s', 'animate__repeat-3')
 }
