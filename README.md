@@ -82,4 +82,4 @@ The game has two difficulty levels: easy and hard. The default setting is easy. 
 
 **My mom** - brags about winning the NYT Wordle every day but can't win this one.
 
-**Allan Strong** - the reason I can name any birds.
+**Allan Strong** - the reason I can name any birds at all.

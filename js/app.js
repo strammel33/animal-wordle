@@ -213,7 +213,7 @@ function winOrLose(){
   if (currentGuess === winningWord) {
     winner = true
     winningMessage()
-  } if (guessesRemaining === 1) {
+  } else if (guessesRemaining === 1) {
     losingMessage()
   } else {
     return
