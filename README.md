@@ -1,6 +1,6 @@
 # Animal Wordle
 ***
-![gamestart](../assets/images/game-start-screenshot.png)
+![gamestart](./assets/images/game-start-screenshot.png)
 
 Animal Wordle is a Wordle clone that only includes 5-letter animals! The game begins with an empty board and a secret winning animal. The goal is to guess the animal in as few tries as possible. To guess; use the on-screen keyboard or type a 5-letter animal and hit enter. Then your guess is assessed. If a letter is in the winning word and placed correctly, it turns green. If a letter is in the winning word but placed incorrectly, it turns yellow. If a letter isn't in the winning word it turns gray. Use that feedback to make your next guess!
 
@@ -14,7 +14,7 @@ The game has two difficulty levels: easy and hard. The default setting is easy. 
 ---
  The game will not accept words that are not in the animal dictionary. The 'Play Guide' outlines the dictionary parameters.
 
-![gamerules](../assets/images/game-rules.png)
+![gamerules](./assets/images/game-rules.png)
 <br></br>
 
 *** 
