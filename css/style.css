@@ -16,6 +16,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 1px;
   background-image: linear-gradient(rgba(229, 231, 232, 0.861), rgb(149, 185, 216));
 }
 
@@ -51,7 +52,7 @@ aside {
 }
 
 .dropbtn {
-  background-color: rgba(71, 101, 147, 0.964);
+  background-color: rgba(54, 82, 124, 0.964);
   font-size: 2vmin;
   color: white;
   padding: .75vmin 0.5vmin;
@@ -63,7 +64,7 @@ aside {
 .drop-content {
   display: none;
   position: absolute;
-  background-color: rgb(93, 126, 93);
+  background-color: rgb(121, 162, 121);
   width: 80vmin;
   right: 0;
   z-index: 1;
@@ -71,16 +72,17 @@ aside {
 
 ul {
   color: black;
-  padding: 1.5vmin 2vmin;
+  padding: 1vmin 1vmin;
   list-style-type: none;
-  font-size: 2.8vmin;
-  line-height: 4vmin;
+  font-size: 2.6vmin;
+  line-height: 4.5vmin;
   text-align: center;
 }
 
 button {
   background-color: rgba(47, 91, 156, 0.375);
   font-size: 2.5vmin;
+  letter-spacing: .2vmin;
   padding: .5vmin .8vmin;
   margin: 1vmin .8vmin .8vmin .8vmin;
   border-radius: .8vmin;
@@ -124,5 +126,10 @@ section > div > div {
   cursor: pointer;
 }
 
+section > div > div:hover { background-color: rgba(47, 91, 156, 0.375);}
+
+button:hover { background-color: rgba(47, 91, 156, 0.647);}
+
 aside:hover .drop-content {display: block;}
-aside:hover .dropbtn {background-color: rgba(47, 91, 156, 0.766); color: white;}
+
+aside:hover .dropbtn {background-color: rgba(34, 58, 95, 0.995); color: white}
