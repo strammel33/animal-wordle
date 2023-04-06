@@ -55,9 +55,9 @@ aside {
   font-size: 2vmin;
   color: white;
   padding: .75vmin 0.5vmin;
-  border-radius: 0;
+  border-radius: .4vmin;
   border: none;
-  margin: 0;
+  margin: .5vmin;
 }
 
 .drop-content {
