@@ -14,7 +14,7 @@ The game has two difficulty levels: easy and hard. The default setting is easy. 
 
  The game will not accept words that are not in the animal dictionary. The 'Play Guide' outlines the dictionary parameters.
 
-![gamerules](./assets/images/game-rules.png)
+![game-rules](./assets/images/game-rules.png)
 <br></br>
 
 *** 
