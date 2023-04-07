@@ -1,11 +1,11 @@
-# 🐯 Animal Wordle 🐴
-## [Play Here!](https://animal-wordle.netlify.app/)
+# 🐯 Wild Wordle 🐴
+## [Play Here!](https://wild-wordle.netlify.app/)
 ***
 
 
-Animal Wordle is a Wordle clone that only includes 5-letter animals! The game begins with an empty board and a secret winning animal. The goal is to guess the animal in as few attempts as possible. To guess; use the on-screen keyboard or type a 5-letter animal and press enter. The color of your guess will change to reveal how close you are to the winning word. If a letter is in the winning word and placed correctly, it turns green. If a letter is in the winning word but placed incorrectly, it turns yellow. If a letter isn't in the winning word it turns gray. Use that feedback to make your next guess!
+Wild Wordle is a Wordle clone that only includes 5-letter animals! The game begins with an empty board and a secret winning animal. The goal is to guess the animal in as few attempts as possible. To guess; use the on-screen keyboard or type a 5-letter animal and press enter. The color of your guess will change to reveal how close you are to the winning word. If a letter is in the winning word and placed correctly, it turns green. If a letter is in the winning word but placed incorrectly, it turns yellow. If a letter isn't in the winning word it turns gray. Use that feedback to make your next guess!
 
-![gamestart](./assets/images/game-start-screenshot.png)
+![gamestart](./assets/images/game-start.png)
 
 The game has two difficulty levels: easy and hard. The default setting is easy. The easy dictionary contains commonly known animals. The hard dictionary contains every 5-letter vertebrate I could find.
 
