@@ -17,66 +17,28 @@ body {
   min-height: 100vh;
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: 1px;
-  background-image: linear-gradient(rgba(229, 231, 232, 0.861), rgb(149, 185, 216));
+  background-image: linear-gradient(rgb(248, 249, 250), rgb(132, 167, 198));
 }
 
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   background-image: url(../assets/images/silhouette.jpg);
   background-size: contain;
+  height: 20vmin;
   width: 80vmin;
   border: .3vmin solid 
 }
 
-.title-message{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5.9vmin;
-}
-
 h1 {
-  font-size: 5vmin;
+  font-size: 6vmin;
   margin: 0; 
 }
 
-#message {
-  margin: 1vmin auto;
-  font-size: 3vmin;
-}
-
 aside {
-  margin-left: auto;
   position: relative;
-}
-
-.dropbtn {
-  background-color: rgba(54, 82, 124, 0.964);
-  font-size: 2vmin;
-  color: white;
-  padding: .75vmin 0.5vmin;
-  border-radius: .4vmin;
-  border: none;
-  margin: .5vmin;
-}
-
-.drop-content {
-  display: none;
-  position: absolute;
-  background-color: rgb(121, 162, 121);
-  width: 80vmin;
-  right: 0;
-  z-index: 1;
-}
-
-ul {
-  color: black;
-  padding: 1vmin 1vmin;
-  list-style-type: none;
-  font-size: 2.6vmin;
-  line-height: 4.5vmin;
-  text-align: center;
+  height: 5vmin;
 }
 
 button {
@@ -86,19 +48,60 @@ button {
   padding: .5vmin .8vmin;
   margin: 1vmin .8vmin .8vmin .8vmin;
   border-radius: .8vmin;
+  box-shadow: .1vmin .1vmin black;
   cursor: pointer;
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.dropbtn {
+  background-color: rgba(34, 77, 141, 0.573);
+  font-size: 2.5vmin;
+  color: white;
+  padding: 1vmin .8vmin;
+  border-radius: 0;
+  border: none;
+  width: 15vmin;
+  margin: .4vmin;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(121, 162, 121);
+  width: 80vmin;
+  left: 0;
+  z-index: 1;
+}
+
+ul {
+  color: black;
+  padding: 1vmin 1vmin;
+  list-style-type: none;
+  letter-spacing: .09vmin;
+  font-size: 2.6vmin;
+  line-height: 4.5vmin;
+  text-align: center;
+}
+
+.right{
+  width: 15vmin;
+  visibility: hidden;
+}
+
+#message {
+  margin: .6vmin auto;
+  font-size: 3vmin;
 }
 
 #board {
   display: grid;
   grid-template-rows: repeat(6, 7vmin);
   grid-template-columns: repeat(5, 7vmin);
-  grid-gap: 1.75vmin .75vmin;
+  grid-gap: 1.7vmin .75vmin;
 }
 
 .cell {
-  border: .3vmin solid rgba(36, 36, 37, 0.966);
+  border: .35vmin solid rgba(36, 36, 37, 0.966);
   font-size: 5vmin;
   text-align: center;
   vertical-align: middle;
@@ -123,6 +126,7 @@ section > div > div {
   margin: .4vmin;
   border: .25vmin solid black;
   border-radius: .8vmin;
+  box-shadow: .1vmin .1vmin black;
   cursor: pointer;
 }
 
